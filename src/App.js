@@ -1,8 +1,9 @@
+import { Typography } from '@mui/material';
 import './App.css';
 
 function App() {
   return (
-  <div>HELLO</div>
+    <Typography>Hello</Typography>
   )
 }
 
