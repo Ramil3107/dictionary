@@ -1,9 +1,13 @@
-import { Typography } from '@mui/material';
-import './App.css';
+import { Route, Routes } from 'react-router-dom';
+import { Layout } from './layout/Layout';
 
 function App() {
   return (
-    <Typography>Hello</Typography>
+    <Routes>
+
+      <Route path="/" element={<Layout />} />
+
+    </Routes>
   )
 }
 
