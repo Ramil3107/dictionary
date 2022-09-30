@@ -1,10 +1,48 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { API } from "../api/api";
-
-//Store
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    words: null,
+    words: [
+        {
+            "en": "dog",
+            "uk": "собака"
+        },
+        {
+            "en": "table",
+            "uk": "стіл"
+        },
+        {
+            "en": "cat",
+            "uk": "кішка"
+        },
+        {
+            "en": "sky",
+            "uk": "небо"
+        },
+        {
+            "en": "cloud",
+            "uk": "хмара"
+        },
+        {
+            "en": "goal",
+            "uk": "ціль"
+        },
+        {
+            "en": "forest",
+            "uk": "ліс"
+        },
+        {
+            "en": "house",
+            "uk": "дім"
+        },
+        {
+            "en": "pain",
+            "uk": "біль"
+        },
+        {
+            "en": "floor",
+            "uk": "підлога"
+        }
+    ],
     loading: true
 }
 
@@ -12,8 +50,8 @@ const dictionarySlice = createSlice({
     name: "dictionary",
     initialState,
     reducers: {
-        setWords: (state, action) => {
-            state.words = action.payload
+        addWord: (state, action) => {
+            state.words.push(action.payload)
         },
         setLoading: (state, action) => {
             state.loading = action.payload
@@ -21,23 +59,5 @@ const dictionarySlice = createSlice({
     }
 })
 
-//Thunks
-
-export const getWords = createAsyncThunk(
-    "dictionary/getWords",
-    async (_, { dispatch }) => {
-        try {
-            dispatch(setLoading(true))
-            const data = await API.getWords()
-            dispatch(setWords(data))
-            dispatch(setLoading(false))
-        }
-        catch (error) {
-            alert(error.message)
-            dispatch(setLoading(false))
-        }
-    }
-)
-
-export const { setWords, setLoading } = dictionarySlice.actions
+export const { addWord, setLoading } = dictionarySlice.actions
 export default dictionarySlice.reducer

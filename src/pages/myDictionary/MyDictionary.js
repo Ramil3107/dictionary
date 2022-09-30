@@ -10,10 +10,6 @@ export const MyDictionary = () => {
     const dispatch = useDispatch()
     const words = useSelector(state => state.dictionary.words)
 
-    useEffect(() => {
-        dispatch(getWords())
-    }, [])
-
     return (
         <>
             {words && <Words words={words} />}
