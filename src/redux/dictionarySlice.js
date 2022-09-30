@@ -61,6 +61,12 @@ const dictionarySlice = createSlice({
         setIsPracticeStarted: (state, action) => {
             state.isPracticeStarted = action.payload
         },
+        removePrevQuizState: (state) => {
+            state.randomWords = []
+            state.randomAnswers = []
+            state.currentGameRightAnswers = 0
+            state.counter = 0
+        },
         setRandomWords: (state) => {
             state.randomWords = shuffleArray(state.words, 10)
         },
@@ -91,5 +97,5 @@ const dictionarySlice = createSlice({
 
 export const {
     addWord, setIsPracticeStarted, setRandomAnswers,
-    setRandomWords, addCurrentGameRightAnswers, setCounter } = dictionarySlice.actions
+    setRandomWords, addCurrentGameRightAnswers, removePrevQuizState, setCounter } = dictionarySlice.actions
 export default dictionarySlice.reducer

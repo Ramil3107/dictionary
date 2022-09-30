@@ -1,6 +1,6 @@
 import { Box, Button } from "@mui/material"
 import { useDispatch } from "react-redux"
-import { setIsPracticeStarted, setRandomAnswers, setRandomWords } from "../../../redux/dictionarySlice"
+import { removePrevQuizState, setIsPracticeStarted, setRandomAnswers, setRandomWords } from "../../../redux/dictionarySlice"
 
 export const StartPractice = () => {
 
@@ -18,9 +18,10 @@ export const StartPractice = () => {
     const dispatch = useDispatch()
 
     const startButtonHandler = () => {
+        dispatch(removePrevQuizState())
         dispatch(setRandomWords())
-        dispatch(setIsPracticeStarted(true))
         dispatch(setRandomAnswers())
+        dispatch(setIsPracticeStarted(true))
     }
 
     return (
