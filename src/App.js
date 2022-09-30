@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { Layout } from './layout/Layout';
 import { AddWords } from './pages/addWords/AddWords';
 import { MyDictionary } from './pages/myDictionary/MyDictionary';
+import { Practice } from './pages/practice/Practice';
 
 function App() {
   return (
@@ -14,6 +15,8 @@ function App() {
         <Route path='mydictionary' element={<MyDictionary />} />
 
         <Route path='addwords' element={<AddWords />} />
+
+        <Route path='practice' element={<Practice />} />
 
       </Route>
 
