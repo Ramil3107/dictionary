@@ -1,20 +1,31 @@
-import { useEffect } from "react"
-import { useDispatch, useSelector } from "react-redux"
-import { CenteredLoader } from "../../common/CenteredLoader/CenteredLoader"
-import { getWords } from "../../redux/dictionarySlice"
-import { WordCard } from "./components/WordCard"
-import { Words } from "./components/Words"
+import { useSelector } from "react-redux"
+import { Box, Grid } from "@mui/material"
+import { WordCard } from "../myDictionary/components/WordCard"
 
 export const MyDictionary = () => {
 
-    const dispatch = useDispatch()
     const words = useSelector(state => state.dictionary.words)
 
     return (
-        <>
-            {words && <Words words={words} />}
-
-            {!words && <CenteredLoader />}
-        </>
+        <Box sx={{ width: "100%" }}>
+            <Grid container>
+                {
+                    words.map(word => {
+                        return (
+                            <Grid
+                                key={word.en}
+                                xs={12} md={6} sm={12} lg={4}
+                                item
+                                display="flex"
+                                justifyContent="center"
+                                alignItems="center"
+                            >
+                                <WordCard word={word} />
+                            </Grid>
+                        )
+                    })
+                }
+            </Grid>
+        </Box>
     )
 }
