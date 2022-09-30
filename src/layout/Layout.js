@@ -1,4 +1,5 @@
 import { Box, Paper } from "@mui/material";
+import { Outlet } from "react-router-dom";
 import { Logo } from "./components/Logo"
 import { NavItems } from "./components/NavItems"
 
@@ -21,6 +22,7 @@ export const Layout = () => {
 
     return (
         <Box sx={styles.wrapper}>
+
             <Paper
                 elevation={0}
                 square
@@ -29,6 +31,9 @@ export const Layout = () => {
                 <Logo />
                 <NavItems />
             </Paper>
+
+            <Outlet />
+
         </Box >
     )
 }
