@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { shuffleArray } from "../utils/arrayUtils";
 
 const initialState = {
     words: [
@@ -43,7 +44,10 @@ const initialState = {
             "uk": "підлога"
         }
     ],
-    loading: true
+    isPracticeStarted: false,
+    randomWords: [],
+    randomAnswers: [],
+    counter: 0
 }
 
 const dictionarySlice = createSlice({
@@ -53,11 +57,19 @@ const dictionarySlice = createSlice({
         addWord: (state, action) => {
             state.words.push(action.payload)
         },
-        setLoading: (state, action) => {
-            state.loading = action.payload
+        setIsPracticeStarted: (state, action) => {
+            state.isPracticeStarted = action.payload
+        },
+        setRandomWords: (state) => {
+            state.randomWords = shuffleArray(state.words, 10)
+        },
+        setCounter: (state) => {
+            if (state.counter < 9) {
+                state.counter += 1
+            }
         }
     }
 })
 
-export const { addWord, setLoading } = dictionarySlice.actions
+export const { addWord, setIsPracticeStarted, setRandomWords, setCounter } = dictionarySlice.actions
 export default dictionarySlice.reducer
