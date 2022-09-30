@@ -12,11 +12,11 @@ export const Logo = () => {
             cursor: "pointer",
             flexWrap: "wrap",
             display: "flex",
+            flexDirection:"column",
             alignItems: "center",
-            pl: 5,
-            pb: 3,
-            pt: 3,
-            mb: 5,
+            pb: 2,
+            pt: 2,
+            mb: 3,
             borderBottom: "0.5px grey solid"
         },
         logoImg: {
@@ -24,14 +24,13 @@ export const Logo = () => {
             height: 45
         },
         logoText: {
-            ml: 2,
             maxWidth: 100
         },
     }
 
     return (
         <Box
-            onClick={() => navigate("/")}
+            onClick={() => navigate("mydictionary")}
             sx={styles.logo}>
             <img
                 style={styles.logoImg}

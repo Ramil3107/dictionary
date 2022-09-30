@@ -36,25 +36,25 @@ export const NavItems = () => {
             text: "My Dictionary",
             defaultIcon: <BookOutlined sx={styles.listIcon} />,
             activeIcon: <Book sx={styles.listIcon} />,
-            path: "/"
+            path: "/mydictionary"
         },
         {
             text: "Add Words",
             defaultIcon: <AddCircleOutline sx={styles.listIcon} />,
             activeIcon: <AddCircle sx={styles.listIcon} />,
-            path: "addwords"
+            path: "/addwords"
         },
         {
             text: "Practice",
             defaultIcon: <SchoolOutlined sx={styles.listIcon} />,
             activeIcon: <School sx={styles.listIcon} />,
-            path: "practice"
+            path: "/practice"
         },
         {
             text: "Progress",
             defaultIcon: <InsertChartOutlined sx={styles.listIcon} />,
             activeIcon: <InsertChart sx={styles.listIcon} />,
-            path: "progress"
+            path: "/progress"
         },
 
     ]
@@ -68,6 +68,7 @@ export const NavItems = () => {
                 listItems.map(item => {
                     return (
                         <ListItem
+                            key={item.path}
                             button
                             onClick={() => navigate(item.path)}
                             sx={location === item.path ? styles.listItemActive : styles.listItem}>
