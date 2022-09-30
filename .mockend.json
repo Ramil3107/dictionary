@@ -1,0 +1,16 @@
+{
+    "User": {
+        "words": [
+            {
+                "en": "string",
+                "ua": "string"
+            }
+        ],
+        "games": [
+            {
+                "gameDate": "string",
+                "correctAnswers": "string"
+            }
+        ]
+    }
+}
