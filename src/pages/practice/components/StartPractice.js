@@ -1,4 +1,5 @@
-import { Box, Button } from "@mui/material"
+import { Box, Button, Typography } from "@mui/material"
+import { grey, lime } from "@mui/material/colors"
 import { useDispatch } from "react-redux"
 import { removePrevQuizState, setIsPracticeStarted, setRandomAnswers, setRandomWords } from "../../../redux/dictionarySlice"
 
@@ -26,6 +27,7 @@ export const StartPractice = () => {
 
     return (
         <Box sx={styles.wrapper}>
+            <Typography sx={{mb:5, color: grey[600]}} variant="h5">Check how many words you have already learned</Typography>
             <Button
                 onClick={startButtonHandler}
                 variant="outlined"
