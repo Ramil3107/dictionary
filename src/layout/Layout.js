@@ -32,7 +32,10 @@ export const Layout = () => {
                 <NavItems />
             </Paper>
 
-            <Outlet />
+            <Box sx={{ width: "82%" }}>
+                <Outlet/>
+            </Box>
+
 
         </Box >
     )
