@@ -50,8 +50,8 @@ export const Quiz = () => {
                 variant="middle"
                 orientation="horizontal"
                 sx={{ color: "grey", width: "40%", mt: 1, mb: 3 }} />
-            <Box sx={{border:"0.5px grey solid"}}>
-                <Typography sx={{p:1}} color={grey[600]}>select the correct translate: </Typography>
+            <Box sx={{border:"0.5px grey solid", borderRadius:5}}>
+                <Typography sx={{p:1}} color={grey[600]}>select the correct translate </Typography>
             </Box>
 
 
