@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from "@mui/material"
 import { useDispatch, useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import { setCounter, addCurrentGameRightAnswers, setRandomAnswers } from "../../../redux/dictionarySlice"
 
 export const Quiz = () => {
@@ -20,8 +21,12 @@ export const Quiz = () => {
 
     const { randomWords, randomAnswers, counter } = useSelector(state => state.dictionary)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const handleAnswerButton = (answer) => {
+        if (counter >= 9) {
+            navigate("/quizresult")
+        }
         if (randomWords[counter].en === answer.en) {
             dispatch(addCurrentGameRightAnswers())
         }
@@ -32,7 +37,7 @@ export const Quiz = () => {
     return (
         <Box sx={styles.wrapper}>
             <Typography>{counter + 1} of 10 questions</Typography>
-            <Typography variant="h3">{randomWords[counter].en}</Typography>
+            <Typography variant="h3">{randomWords[counter]?.en}</Typography>
             <Box sx={styles.buttons}>
                 {
                     randomAnswers.map(answer => {
