@@ -13,6 +13,10 @@ export const StartPractice = () => {
             width: "100%",
             alignItems: "center",
             justifyContent: "center"
+        },
+        title: {
+            mb: 5,
+            color: grey[600]
         }
     }
 
@@ -28,12 +32,18 @@ export const StartPractice = () => {
 
     return (
         <Box sx={styles.wrapper}>
-            <Typography sx={{ mb: 5, color: grey[600] }} variant="h5">Check how many words you have already learned</Typography>
+            <Typography
+                sx={styles.title}
+                variant="h5"
+            >
+                Check how many words you've already learned
+            </Typography>
             <Button
                 onClick={startButtonHandler}
                 variant="outlined"
                 color="secondary"
-                size="large">
+                size="large"
+            >
                 Start Practice
             </Button>
         </Box>

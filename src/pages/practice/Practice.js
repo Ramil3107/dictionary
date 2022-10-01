@@ -5,12 +5,15 @@ import { StartPractice } from "./components/StartPractice"
 
 export const Practice = () => {
 
-    const isPracticeStarted = useSelector(state => state.dictionary.isPracticeStarted)
+    const { isPracticeStarted, randomWords, randomAnswers, counter } = useSelector(state => state.dictionary)
 
     return (
         <>
             {!isPracticeStarted && <StartPractice />}
-            {isPracticeStarted && <Quiz />}
+            {isPracticeStarted && <Quiz
+                randomWords={randomWords}
+                randomAnswers={randomAnswers}
+                counter={counter} />}
         </>
     )
 }
