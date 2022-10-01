@@ -49,7 +49,7 @@ const initialState = {
     randomAnswers: [],
     currentGameRightAnswers: 0,
     counter: 0,
-    historyPrevLength: 0,
+    historyPrevLength: 1,
     history: []
 }
 

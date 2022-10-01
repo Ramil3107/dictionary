@@ -29,7 +29,7 @@ export const QuizResult = () => {
 
     useEffect(() => {
         const prevQuizHistory = {
-            currentGameRightAnswers: currentGameRightAnswers,
+            rightAnswers: currentGameRightAnswers,
             date: currentDate()
         }
         if (historyPrevLength === history.length) {
@@ -47,7 +47,7 @@ export const QuizResult = () => {
                 {`You got ${currentGameRightAnswers} correct answers out of 10`}
             </Typography>
 
-            <CircularProgressBox />
+            <CircularProgressBox currentGameRightAnswers={currentGameRightAnswers} />
         </Box>
     )
 }
