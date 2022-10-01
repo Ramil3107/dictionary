@@ -3,6 +3,7 @@ import { Layout } from './layout/Layout';
 import { AddWords } from './pages/addWords/AddWords';
 import { MyDictionary } from './pages/myDictionary/MyDictionary';
 import { Practice } from './pages/practice/Practice';
+import { Progress } from './pages/progress/Progress';
 import { QuizResult } from './pages/quizResult/QuizResult';
 
 function App() {
@@ -20,6 +21,8 @@ function App() {
         <Route path='practice' element={<Practice />} />
 
         <Route path='quizresult' element={<QuizResult />} />
+
+        <Route path='progress' element={<Progress />} />
 
       </Route>
 
