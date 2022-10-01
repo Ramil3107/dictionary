@@ -60,6 +60,9 @@ const dictionarySlice = createSlice({
         addWord: (state, action) => {
             state.words.push(action.payload)
         },
+        deleteWord: (state, action) => {
+            state.words = state.words.filter(word => word.en !== action.payload)
+        },
         setIsPracticeStarted: (state, action) => {
             state.isPracticeStarted = action.payload
         },
@@ -106,5 +109,5 @@ const dictionarySlice = createSlice({
 export const {
     addWord, setIsPracticeStarted, setRandomAnswers,
     setRandomWords, addCurrentGameRightAnswers, removePrevQuizState,
-    setNewHistory, setCounter, setHistoryPrevLength } = dictionarySlice.actions
+    setNewHistory, setHistoryPrevLength, deleteWord, setCounter } = dictionarySlice.actions
 export default dictionarySlice.reducer

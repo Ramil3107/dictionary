@@ -1,6 +1,8 @@
 import { Close, Delete } from "@mui/icons-material"
 import { Divider, IconButton, Paper, Typography } from "@mui/material"
 import { blue, green, grey } from "@mui/material/colors"
+import { useDispatch } from "react-redux"
+import { deleteWord } from "../../../redux/dictionarySlice"
 
 export const WordCard = ({ word }) => {
 
@@ -31,11 +33,13 @@ export const WordCard = ({ word }) => {
         }
     }
 
+    const dispatch = useDispatch()
+
     return (
         <Paper
             elevation={3}
             sx={styles.wrapper}>
-            <IconButton sx={styles.deleteIcon}>
+            <IconButton onClick={() => dispatch(deleteWord(word.en))} sx={styles.deleteIcon}>
                 <Close color="action" />
             </IconButton>
             <Typography
