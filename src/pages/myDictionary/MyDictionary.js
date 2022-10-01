@@ -1,31 +1,33 @@
 import { useSelector } from "react-redux"
-import { Box, Grid } from "@mui/material"
-import { WordCard } from "../myDictionary/components/WordCard"
+import { Box, Divider } from "@mui/material";
+import { Words } from "./components/Words"
+import { NavButtons } from "./components/NavButtons"
 
 export const MyDictionary = () => {
+
+    const styles = {
+        wrapper: {
+            width: "100%"
+        },
+        dividereBox: {
+            display: "flex",
+            justifyContent: "center",
+            mt: 5
+        }
+    }
 
     const words = useSelector(state => state.dictionary.words)
 
     return (
-        <Box sx={{ width: "100%" }}>
-            <Grid container>
-                {
-                    words.map(word => {
-                        return (
-                            <Grid
-                                key={word.en}
-                                xs={12} md={6} sm={12} lg={4}
-                                item
-                                display="flex"
-                                justifyContent="center"
-                                alignItems="center"
-                            >
-                                <WordCard word={word} />
-                            </Grid>
-                        )
-                    })
-                }
-            </Grid>
+        <Box sx={styles.wrapper}>
+            <NavButtons />
+            <Box sx={styles.dividereBox}>
+                <Divider
+                    orientation="horizontal"
+                    variant="middle"
+                    sx={{ width: "70%" }} />
+            </Box>
+            <Words words={words} />
         </Box>
     )
 }
