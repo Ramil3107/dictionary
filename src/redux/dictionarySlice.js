@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { shuffleArray } from "../utils/arrayUtils";
+import { shuffleArray } from "../utils/utils";
 
 const initialState = {
     words: [
