@@ -5,8 +5,6 @@ import translateLogo from "../../assets/translateLogo.png"
 
 export const Logo = () => {
 
-    const navigate = useNavigate()
-
     const styles = {
         logo: {
             cursor: "pointer",
@@ -25,8 +23,10 @@ export const Logo = () => {
         },
         logoText: {
             maxWidth: 100
-        },
+        }
     }
+
+    const navigate = useNavigate()
 
     return (
         <Box

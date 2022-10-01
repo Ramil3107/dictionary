@@ -22,7 +22,6 @@ export const Layout = () => {
 
     return (
         <Box sx={styles.wrapper}>
-
             <Paper
                 elevation={0}
                 square
@@ -35,8 +34,6 @@ export const Layout = () => {
             <Box sx={{ width: "82%" }}>
                 <Outlet/>
             </Box>
-
-
         </Box >
     )
 }
