@@ -49,6 +49,7 @@ const initialState = {
     randomAnswers: [],
     currentGameRightAnswers: 0,
     counter: 0,
+    historyPrevLength: 0,
     history: [
         {
             rightAnswers: 7,
@@ -77,6 +78,9 @@ const dictionarySlice = createSlice({
         },
         setNewHistory: (state, action) => {
             state.history.push(action.payload)
+        },
+        setHistoryPrevLength: (state) => {
+            state.historyPrevLength = state.history.length
         },
         removePrevQuizState: (state) => {
             state.randomWords = []
@@ -115,5 +119,5 @@ const dictionarySlice = createSlice({
 export const {
     addWord, setIsPracticeStarted, setRandomAnswers,
     setRandomWords, addCurrentGameRightAnswers, removePrevQuizState,
-    setNewHistory, setCounter } = dictionarySlice.actions
+    setNewHistory, setCounter, setHistoryPrevLength } = dictionarySlice.actions
 export default dictionarySlice.reducer

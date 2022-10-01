@@ -26,6 +26,7 @@ export const QuizResult = () => {
     }
 
     const rightAnswers = useSelector(state => state.dictionary.currentGameRightAnswers)
+    const { historyPrevLength, history } = useSelector(state => state.dictionary)
     const dispatch = useDispatch()
 
     const progressInPercents = (correct, total) => {
@@ -37,7 +38,9 @@ export const QuizResult = () => {
             rightAnswers: rightAnswers,
             date: currentDate()
         }
-        dispatch(setNewHistory(prevQuizHistory))
+        if (historyPrevLength === history.length) {
+            dispatch(setNewHistory(prevQuizHistory))
+        }
     }, [])
 
 
