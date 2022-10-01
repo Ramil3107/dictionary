@@ -50,20 +50,7 @@ const initialState = {
     currentGameRightAnswers: 0,
     counter: 0,
     historyPrevLength: 0,
-    history: [
-        {
-            rightAnswers: 7,
-            date: "Sat Oct 01 2022 01:25"
-        },
-        {
-            rightAnswers: 8,
-            date: "Mon Oct 05 2022 01:25"
-        },
-        {
-            rightAnswers: 10,
-            date: "Fri Oct 01 2022 01:25"
-        },
-    ]
+    history: []
 }
 
 const dictionarySlice = createSlice({
