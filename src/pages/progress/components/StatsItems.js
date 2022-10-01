@@ -36,7 +36,6 @@ export const StatsItems = ({ history }) => {
                     )
                 })
             }
-
         </Box>
     )
 }

@@ -1,6 +1,4 @@
-import { Check, Close, Visibility } from "@mui/icons-material"
-import { Box, Typography } from "@mui/material"
-import { blue } from "@mui/material/colors"
+import { Box } from "@mui/material";
 import { useSelector } from "react-redux"
 import { StatsItems } from "./components/StatsItems"
 import { StatsTitles } from "./components/StatsTitles"
@@ -20,13 +18,9 @@ export const Progress = () => {
 
   return (
     <Box sx={styles.wrapper}>
-
       <TotalStats history={history} />
-
       <StatsTitles />
-
       <StatsItems history={history} />
-
     </Box>
   )
 }

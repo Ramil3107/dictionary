@@ -37,7 +37,7 @@ export const TotalStats = ({ history }) => {
     const totalStatsData = [
         {
             icon: <Visibility sx={styles.icon} fontSize="large" />,
-            title: "Total Practices",
+            title: "Total Times",
             data: history.length
         },
         {

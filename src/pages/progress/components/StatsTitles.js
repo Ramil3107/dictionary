@@ -21,12 +21,12 @@ export const StatsTitles = () => {
         }
     }
 
+    const titles = ["Date", "Right Answers", "Wrong Answers"]
+
     return (
         <Box sx={styles.titlesBox}>
             <Box sx={styles.titles}>
-                <Typography color="text.secondary">Date</Typography>
-                <Typography color="text.secondary">Right Answers</Typography>
-                <Typography color="text.secondary">Wrong Answers</Typography>
+                {titles.map(title => <Typography color="text.secondary">{title}</Typography>)}
             </Box>
         </Box>
     )
