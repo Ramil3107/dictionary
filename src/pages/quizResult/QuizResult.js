@@ -1,9 +1,18 @@
 import { Box, CircularProgress, Typography } from "@mui/material"
 import { blue } from "@mui/material/colors"
-import { useSelector } from "react-redux"
+import { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { setNewHistory } from "../../redux/dictionarySlice"
 
 
 export const QuizResult = () => {
+
+    const currentDate = () => {
+        const date = new Date().toDateString()
+        const time = new Date().toTimeString().slice(0, 5)
+        const formatedDate = `${date} ${time}`
+        return formatedDate
+    }
 
     const styles = {
         wrapper: {
@@ -17,10 +26,21 @@ export const QuizResult = () => {
     }
 
     const rightAnswers = useSelector(state => state.dictionary.currentGameRightAnswers)
+    const dispatch = useDispatch()
 
     const progressInPercents = (correct, total) => {
         return correct * 100 / total
     }
+
+    useEffect(() => {
+        const prevQuizHistory = {
+            rightAnswers: rightAnswers,
+            date: currentDate()
+        }
+        dispatch(setNewHistory(prevQuizHistory))
+    }, [])
+
+
 
     return (
         <Box sx={styles.wrapper}>

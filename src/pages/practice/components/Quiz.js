@@ -1,5 +1,5 @@
 import { Box, Button, Divider, Typography } from "@mui/material"
-import { blue, grey } from "@mui/material/colors"
+import { grey } from "@mui/material/colors"
 import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { setCounter, addCurrentGameRightAnswers, setRandomAnswers, setIsPracticeStarted } from "../../../redux/dictionarySlice"
@@ -22,9 +22,12 @@ export const Quiz = () => {
         }
     }
 
+
+
     const { randomWords, randomAnswers, counter } = useSelector(state => state.dictionary)
     const dispatch = useDispatch()
     const navigate = useNavigate()
+
 
     const handleAnswerButton = (answer) => {
         if (counter >= 9) {
@@ -38,20 +41,21 @@ export const Quiz = () => {
         dispatch(setRandomAnswers())
     }
 
+
     return (
         <Box sx={styles.wrapper}>
             <Typography color={grey[500]}>{counter + 1} of 10 questions</Typography>
             <Divider
                 variant="middle"
                 orientation="horizontal"
-                sx={{ color: "grey", width: "40%", mt: 1, mb:1 }} />
+                sx={{ color: "grey", width: "40%", mt: 1, mb: 1 }} />
             <Typography variant="h2">{randomWords[counter]?.en}</Typography>
             <Divider
                 variant="middle"
                 orientation="horizontal"
                 sx={{ color: "grey", width: "40%", mt: 1, mb: 3 }} />
-            <Box sx={{border:"0.5px grey solid", borderRadius:5}}>
-                <Typography sx={{p:1}} color={grey[600]}>select the correct translate </Typography>
+            <Box sx={{ border: "0.5px grey solid", borderRadius: 5 }}>
+                <Typography sx={{ p: 1 }} color={grey[600]}>select the correct translate </Typography>
             </Box>
 
 
