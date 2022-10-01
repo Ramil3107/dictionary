@@ -41,7 +41,7 @@ export const StartPractice = () => {
             <Button
                 onClick={startButtonHandler}
                 variant="outlined"
-                color="secondary"
+                color="info"
                 size="large"
             >
                 Start Practice
