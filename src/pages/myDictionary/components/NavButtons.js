@@ -1,7 +1,7 @@
 import { Box, Button } from "@mui/material"
 import { useNavigate } from "react-router-dom"
 
-export const NavButtons = () => {
+export const NavButtons = ({ words }) => {
 
     const styles = {
         buttons: {
@@ -18,8 +18,20 @@ export const NavButtons = () => {
 
     return (
         <Box sx={styles.buttons}>
-            <Button onClick={() => navigate("/addwords")} size="large" variant="outlined">Add Words</Button>
-            <Button onClick={() => navigate("/practice")} size="large" variant="outlined">Practice</Button>
+            <Button
+                onClick={() => navigate("/addwords")}
+                size="large"
+                variant="outlined">
+                Add Words
+            </Button>
+
+            <Button
+                disabled={words.length < 10}
+                onClick={() => navigate("/practice")}
+                size="large"
+                variant="outlined">
+                Practice
+            </Button>
         </Box>
     )
 }

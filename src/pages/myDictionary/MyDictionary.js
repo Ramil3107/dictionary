@@ -20,7 +20,7 @@ export const MyDictionary = () => {
 
     return (
         <Box sx={styles.wrapper}>
-            <NavButtons />
+            <NavButtons words={words} />
             <Box sx={styles.dividereBox}>
                 <Divider
                     orientation="horizontal"
