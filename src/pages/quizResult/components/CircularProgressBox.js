@@ -1,6 +1,7 @@
 import { Box, CircularProgress, Typography } from "@mui/material"
+import { blue } from "@mui/material/colors"
 
-export const circularProgressBox = ({ currentGameRightAnswers }) => {
+export const CircularProgressBox = ({ currentGameRightAnswers }) => {
 
     const styles = {
         circularProgressBox: {
