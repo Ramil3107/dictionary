@@ -35,7 +35,7 @@ export const WordCard = ({ word }) => {
         <Paper
             elevation={3}
             sx={styles.wrapper}>
-            <IconButton sx={{ alignSelf: "flex-end", mr: 2, mb: -7 }}>
+            <IconButton sx={styles.deleteIcon}>
                 <Close color="action" />
             </IconButton>
             <Typography
