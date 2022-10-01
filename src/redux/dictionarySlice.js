@@ -48,7 +48,13 @@ const initialState = {
     randomWords: [],
     randomAnswers: [],
     currentGameRightAnswers: 0,
-    counter: 0
+    counter: 0,
+    history: [
+        {
+            rightAnswers: 7,
+            date: "Sat Oct 01 2022 01:25"
+        }
+    ]
 }
 
 const dictionarySlice = createSlice({
@@ -60,6 +66,9 @@ const dictionarySlice = createSlice({
         },
         setIsPracticeStarted: (state, action) => {
             state.isPracticeStarted = action.payload
+        },
+        setNewHistory: (state, action) => {
+            state.history.push(action.payload)
         },
         removePrevQuizState: (state) => {
             state.randomWords = []
@@ -97,5 +106,6 @@ const dictionarySlice = createSlice({
 
 export const {
     addWord, setIsPracticeStarted, setRandomAnswers,
-    setRandomWords, addCurrentGameRightAnswers, removePrevQuizState, setCounter } = dictionarySlice.actions
+    setRandomWords, addCurrentGameRightAnswers, removePrevQuizState,
+    setNewHistory, setCounter } = dictionarySlice.actions
 export default dictionarySlice.reducer
