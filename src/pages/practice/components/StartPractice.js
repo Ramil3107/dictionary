@@ -1,9 +1,10 @@
-import { Box, Button, Typography } from "@mui/material"
-import { grey, lime } from "@mui/material/colors"
+import { Box } from "@mui/material";
 import { useDispatch } from "react-redux"
 import { removePrevQuizState, setHistoryPrevLength, setIsPracticeStarted, setRandomAnswers, setRandomWords } from "../../../redux/dictionarySlice"
+import { PracticeAvailable } from "./PracticeAvailable"
+import { PracticeNotAvailable } from "./PracticeNotAvailable"
 
-export const StartPractice = () => {
+export const StartPractice = ({ words }) => {
 
     const styles = {
         wrapper: {
@@ -13,10 +14,6 @@ export const StartPractice = () => {
             width: "100%",
             alignItems: "center",
             justifyContent: "center"
-        },
-        title: {
-            mb: 5,
-            color: grey[600]
         }
     }
 
@@ -32,20 +29,9 @@ export const StartPractice = () => {
 
     return (
         <Box sx={styles.wrapper}>
-            <Typography
-                sx={styles.title}
-                variant="h5"
-            >
-                Check how many words you've already learned
-            </Typography>
-            <Button
-                onClick={startButtonHandler}
-                variant="outlined"
-                color="info"
-                size="large"
-            >
-                Start Practice
-            </Button>
+            {words.length >= 10 && <PracticeAvailable words={words} startButtonHandler={startButtonHandler} />}
+
+            {words.length < 10 && <PracticeNotAvailable />}
         </Box>
     )
 }
