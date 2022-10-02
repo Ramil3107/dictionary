@@ -1,10 +1,11 @@
-import { Box, Typography } from "@mui/material"
+import { Box, Button, Typography } from "@mui/material"
 import { blue } from "@mui/material/colors"
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { setNewHistory } from "../../redux/dictionarySlice"
 import { currentDate } from "../../utils/utils"
 import { CircularProgressBox } from "./components/CircularProgressBox"
+import { ReturnButtons } from "./components/ReturnButtons"
 
 export const QuizResult = () => {
 
@@ -48,6 +49,7 @@ export const QuizResult = () => {
             </Typography>
 
             <CircularProgressBox currentGameRightAnswers={currentGameRightAnswers} />
+            <ReturnButtons />
         </Box>
     )
 }
