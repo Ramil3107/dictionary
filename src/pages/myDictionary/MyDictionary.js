@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux"
-import { Box, Divider } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { Words } from "./components/Words"
 import { NavButtons } from "./components/NavButtons"
+import { EmptyState } from "./components/EmptyState";
 
 export const MyDictionary = () => {
 
@@ -27,7 +28,8 @@ export const MyDictionary = () => {
                     variant="middle"
                     sx={{ width: "70%" }} />
             </Box>
-            <Words words={words} />
+            {words.length >= 1 && <Words words={words} />}
+            {words.length < 1 && <EmptyState />}
         </Box>
     )
 }

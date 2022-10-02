@@ -36,10 +36,6 @@ const initialState = {
             "uk": "дім"
         },
         {
-            "en": "pain",
-            "uk": "біль"
-        },
-        {
             "en": "floor",
             "uk": "підлога"
         }
